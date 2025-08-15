@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ultimate Chat</title>
+  <link rel="preconnect" href="https://api.dicebear.com">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1.5.2/dist/emoji-picker.min.js"></script>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="brand">💬 Ultimate Chat</div>
+    <div class="section">
+      <label>Nickname</label>
+      <input id="nickname" placeholder="Your name" />
+      <label>Room</label>
+      <input id="room" placeholder="general" value="general" />
+      <button id="join">Join</button>
+    </div>
+
+    <div class="section">
+      <div class="row between">
+        <h3>Users Online</h3>
+        <button id="themeToggle" title="Toggle dark mode">🌙</button>
+      </div>
+      <div id="users"></div>
+    </div>
+
+    <div class="section small">
+      <label><input type="checkbox" id="notifyToggle"> Desktop notifications</label>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header id="header">
+      <div id="roomTitle">#general</div>
+      <div id="status"></div>
+    </header>
+
+    <section id="messages"></section>
+
+    <div id="typing"></div>
+
+    <footer id="composer">
+      <button id="emojiBtn" title="Emoji">😊</button>
+      <input id="input" placeholder="Type a message"/>
+      <button id="send">Send</button>
+      <emoji-picker id="picker"></emoji-picker>
+    </footer>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
